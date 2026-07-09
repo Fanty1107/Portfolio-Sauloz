@@ -110,10 +110,10 @@ export default function ClientsSection() {
             >
               <div className={`relative w-28 h-28 rounded-full p-1 bg-zinc-800/50 border-2 border-transparent transition-all duration-300 shadow-xl group-hover:scale-105 group-hover:-translate-y-2 ${client.color} ${client.glow}`}>
                 <div className="relative w-full h-full rounded-full">
-                  <Image
+                  <img
                     src={client.img}
                     alt={client.name}
-                    fill
+              
                     sizes="(max-width: 768px) 112px, 112px"
                     draggable={false}
                     className="object-cover rounded-full border-[3px] border-transparent group-hover:border-[#0a0a0a] transition-all pointer-events-none"

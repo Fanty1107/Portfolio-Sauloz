@@ -38,7 +38,7 @@ export default function AboutSection() {
           <div className="absolute inset-3 border-2 border-red-600 rounded-xl overflow-hidden bg-[#111] z-20">
             <div className="relative w-full h-full">
               <Image 
-                src="https://images.unsplash.com/photo-1560972550-aad3c3765173?q=80&w=1000&auto=format&fit=crop" 
+                src="" 
                 alt="Personagem do Editor" 
                 fill
                 sizes="(max-width: 768px) 100vw, 400px"
@@ -55,9 +55,8 @@ export default function AboutSection() {
           <span className="text-7xl lg:text-[4.5rem] bg-[radial-gradient(circle,#f50606_45%,transparent_40%)] bg-[length:4px_4px] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">SOBRE</span>
           <span className="text-6xl lg:text-[5.0rem] text-white [text-shadow:2px_2px_0_#dc2626]">MIM</span>
         </h2>
-        <div className="space-y-5 text-zinc-400 text-lg md:text-xl leading-relaxed mt-4">
-          <p>Sou um editor de vídeo obcecado em transformar conteúdo bruto em <strong className="text-white">experiências visuais e artisticas</strong>. Meu objetivo é garantir que o espectador não consiga tirar os olhos da tela.</p>
-          <p>Cada projeto é tratado como uma obra única.</p>
+        <div className="space-y-5 text-justify text-zinc-400 text-lg md:text-xl leading-relaxed mt-4">
+          <p>Multi-artista bilíngue e especialista em pós-produção avançada, transformo conteúdos digitais em produções de elite com ritmo cirúrgico e identidade visual marcante. Unindo a bagagem estratégica da formação em<strong className="text-white"> Produção Audiovisual</strong> ao motion design complexo e à edição de alta performance no cenário gaming, utilizo técnica refinada e direção de arte para quebrar o padrão e garantir retenção absoluta no mercado global.</p>
         </div>
       </motion.div>
     </section>

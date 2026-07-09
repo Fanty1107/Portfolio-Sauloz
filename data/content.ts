@@ -1,16 +1,19 @@
 export const clients = [
-  { id: 1, name: "Turma da Batatinha", img: "https://i.pravatar.cc/150?u=batata", url: "#", color: "group-hover:border-yellow-500", glow: "group-hover:shadow-[0_0_30px_rgba(234,179,8,0.6)]" },
-  { id: 2, name: "Luksk", img: "https://i.pravatar.cc/150?u=luksk", url: "#", color: "group-hover:border-purple-500", glow: "group-hover:shadow-[0_0_30px_rgba(168,85,247,0.6)]" },
-  { id: 3, name: "EIMINE", img: "https://i.pravatar.cc/150?u=eimine", url: "#", color: "group-hover:border-cyan-500", glow: "group-hover:shadow-[0_0_30px_rgba(6,182,212,0.6)]" },
-  { id: 4, name: "M4rkim", img: "https://i.pravatar.cc/150?u=m4rkim", url: "#", color: "group-hover:border-orange-500", glow: "group-hover:shadow-[0_0_30px_rgba(249,115,22,0.6)]" },
-  { id: 5, name: "mikurtz", img: "https://i.pravatar.cc/150?u=mikurtz", url: "#", color: "group-hover:border-pink-500", glow: "group-hover:shadow-[0_0_30px_rgba(236,72,153,0.6)]" },
-  
+  { id: 1, name: "Bybit", img: "assets/by.png", url: "#", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(234,179,8,0.6)]" },
+  { id: 2, name: "Klein", img: "assets/Klein.ico", url: "#", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(168,85,247,0.6)]" },
+  { id: 3, name: "Marrom Cereja", img: "assets/marromCereja.ico", url: "#", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(6,182,212,0.6)]" },
+  { id: 4, name: "Matheus", img: "assets/Matheus.ico", url: "#", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(249,115,22,0.6)]" },
+  { id: 5, name: "MPK Ferroviaria", img: "assets/MPKFerroviaria.ico", url: "#", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(221,32,103,0.6)]" },
+  { id: 6, name: "Rafael", img: "assets/Rafael.ico", url: "#", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(236,72,153,0.6)]" },
+  { id: 7, name: "Raphumi React", img: "assets/raphumiReact.ico", url: "#", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(106,82,113,0.6)]" },
+  { id: 8, name: "Sauloozvlr", img: "assets/sauloozvlr.ico", url: "#", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(126,12,133,0.6)]" },
+  { id: 9, name: "Sxu Edits", img: "assets/sxuEdits.ico", url: "#", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(189,29,215,0.7)]" },
 ];
 
 export const portfolioItems = [
-  { id: 1, tag: "INTRO", title: "Feito por SXUEDITS", subtitle: "©", videoUrl: "assets/rafao.mp4" },
-  { id: 2, tag: "SHORTS", title: "Feito por SXUEDITS", subtitle: "©", videoUrl: "assets/maelle.mp4" },
-  { id: 3, tag: "VÍDEO", title: "Feito por SXUEDITS", subtitle: "©",  videoUrl: "assets/barbudo.mp4" },
+  { id: 1, tag: "VENDAS", title: "Feito por SXUEDITS", subtitle: "©", videoUrl: "assets/rafao.mp4" },
+  { id: 2, tag: "GAMING", title: "Feito por SXUEDITS", subtitle: "©", videoUrl: "assets/maelle.mp4" },
+  { id: 3, tag: "DINÂMICOS", title: "Feito por SXUEDITS", subtitle: "©",  videoUrl: "assets/barbudo.mp4" },
 ];
 
 export const faqs = [

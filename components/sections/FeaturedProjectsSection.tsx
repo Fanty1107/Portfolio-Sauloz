@@ -47,7 +47,7 @@ export default function FeaturedProjectsSection() {
             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-red-600/10 border border-red-500/30 text-red-500 rounded-full text-sm font-bold uppercase tracking-wider">
               <Zap size={18} fill="currentColor" /> by sxuEdits
             </div>
-            <h3 className="text-4xl font-black text-white">Projeto Masterpiece</h3>
+            <h3 className="text-4xl font-black text-white">Projetos Longform</h3>
             <ul className="space-y-4">
               <li className="flex items-center gap-4 bg-black/40 p-4 rounded-xl border border-white/5 backdrop-blur-sm">
                 <div className="bg-red-600 text-white rounded-full p-1.5 shadow-[0_0_10px_rgba(220,38,38,0.5)]"><CheckCircle2 size={20} /></div>

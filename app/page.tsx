@@ -17,9 +17,9 @@ export default function PortfolioSxuedits() {
     <div className="min-h-screen bg-[#0a0a0a] text-zinc-300 font-sans selection:bg-red-600 selection:text-white overflow-x-hidden">
       <Header />
       <main className="w-full flex flex-col gap-32 lg:gap-40 py-20">
-        <HeroSection /> {/* O topo carrega instantaneamente */}
+        <HeroSection /> 
         
-        {/* O resto carrega sob demanda conforme o scroll */}
+        
         <AboutSection />
         <FeaturedProjectsSection />
         <PortfolioSection />
