@@ -1,9 +1,8 @@
 // app/page.tsx
-import React from "react";
-import dynamic from "next/dynamic";
-import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
 import HeroSection from "@/components/sections/HeroSection";
+import dynamic from "next/dynamic";
 
 // Carregamento Assíncrono (Lazy Load) das seções abaixo da dobra
 const AboutSection = dynamic(() => import("@/components/sections/AboutSection"));
@@ -18,8 +17,6 @@ export default function PortfolioSxuedits() {
       <Header />
       <main className="w-full flex flex-col gap-32 lg:gap-40 py-20">
         <HeroSection /> 
-        
-        
         <AboutSection />
         <FeaturedProjectsSection />
         <PortfolioSection />

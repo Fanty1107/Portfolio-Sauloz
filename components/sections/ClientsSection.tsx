@@ -1,11 +1,10 @@
 "use client";
-import React, { useRef, useState, useEffect } from "react";
-import { motion, useMotionValue, useAnimationFrame } from "framer-motion";
-import Link from "next/link";
 import { clients } from '@/data/content';
 import { fadeUp } from '@/utils/animations';
 import { bebas } from '@/utils/fonts';
-import Image from 'next/image';
+import { motion, useAnimationFrame, useMotionValue } from "framer-motion";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 export default function ClientsSection() {
   const [loopWidth, setLoopWidth] = useState(0);
@@ -114,9 +113,9 @@ export default function ClientsSection() {
                     src={client.img}
                     alt={client.name}
               
-                    sizes="(max-width: 768px) 112px, 112px"
+                    
                     draggable={false}
-                    className="object-cover rounded-full border-[3px] border-transparent group-hover:border-[#0a0a0a] transition-all pointer-events-none"
+                    className="w-full h-full object-cover object-cover rounded-full border-[3px] border-transparent group-hover:border-[#0a0a0a] transition-all pointer-events-none"
                   />
                 </div>
               </div>

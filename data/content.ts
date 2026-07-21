@@ -1,13 +1,13 @@
 export const clients = [
-  { id: 1, name: "Bybit", img: "assets/by.png", url: "https://www.bybit.com/pt-BR/", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(234,179,8,0.6)]" },
-  { id: 2, name: "Klein", img: "assets/Klein.ico", url: "https://kleinfunding.com/", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(168,85,247,0.6)]" },
-  { id: 3, name: "Marrom Cereja", img: "assets/marromCereja.ico", url: "https://www.instagram.com/marromcerejaoficial/", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(6,182,212,0.6)]" },
-  { id: 4, name: "Matheus", img: "assets/Matheus.ico", url: "https://www.instagram.com/matheusantous/", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(249,115,22,0.6)]" },
-  { id: 5, name: "MPK Ferroviaria", img: "assets/MPKFerroviaria.ico", url: "https://www.instagram.com/mpk.rail/", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(221,32,103,0.6)]" },
-  { id: 6, name: "Rafael", img: "assets/Rafael.ico", url: "https://www.instagram.com/orafaelarcon/", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(236,72,153,0.6)]" },
-  { id: 7, name: "Raphumi React", img: "assets/raphumiReact.ico", url: "https://www.youtube.com/@raphumiReact", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(106,82,113,0.6)]" },
-  { id: 8, name: "Sauloozvlr", img: "assets/sauloozvlr.ico", url: "https://www.instagram.com/sauloozvlr/", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(126,12,133,0.6)]" },
-  { id: 9, name: "Sxu Edits", img: "assets/sxuEdits.ico", url: "https://www.tiktok.com/@sxuszz", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(189,29,215,0.7)]" },
+  { id: 1, name: "Bybit", img: "/assets/by.png", url: "https://www.bybit.com/pt-BR/", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(234,179,8,0.6)]" },
+  { id: 2, name: "Klein", img: "/assets/Klein.ico", url: "https://kleinfunding.com/", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(168,85,247,0.6)]" },
+  { id: 3, name: "Marrom Cereja", img: "/assets/marromCereja.ico", url: "https://www.instagram.com/marromcerejaoficial/", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(6,182,212,0.6)]" },
+  { id: 4, name: "Matheus", img: "/assets/Matheus.ico", url: "https://www.instagram.com/matheusantous/", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(249,115,22,0.6)]" },
+  { id: 5, name: "MPK Ferroviaria", img: "/assets/MPKFerroviaria.ico", url: "https://www.instagram.com/mpk.rail/", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(221,32,103,0.6)]" },
+  { id: 6, name: "Rafael", img: "/assets/Rafael.ico", url: "https://www.instagram.com/orafaelarcon/", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(236,72,153,0.6)]" },
+  { id: 7, name: "Raphumi React", img: "/assets/raphumiReact.ico", url: "https://www.youtube.com/@raphumiReact", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(106,82,113,0.6)]" },
+  { id: 8, name: "Sauloozvlr", img: "/assets/sauloozvlr.ico", url: "https://www.instagram.com/sauloozvlr/", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(126,12,133,0.6)]" },
+  { id: 9, name: "Sxu Edits", img: "/assets/sxuEdits.ico", url: "https://www.tiktok.com/@sxuszz", color: "group-hover:border-red-500", glow: "group-hover:shadow-[0_0_30px_rgba(189,29,215,0.7)]" },
 ];
 
 export const portfolioItems = [
