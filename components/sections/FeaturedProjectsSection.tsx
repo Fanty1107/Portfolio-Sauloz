@@ -5,10 +5,15 @@ import { Zap, CheckCircle2 } from "lucide-react";
 import PaintTexture from "../ui/PaintTexture";
 import { fadeUp } from "@/utils/animations";
 import { bebas } from "@/utils/fonts";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { dict } from "@/data/content";
 
 export default function FeaturedProjectsSection() {
   const [isInteractive, setIsInteractive] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  const { lang } = useLanguage();
+  const t = dict[lang].featured;
 
   const handlePlayVideo = () => {
     if (!isInteractive) {
@@ -30,17 +35,15 @@ export default function FeaturedProjectsSection() {
           <h2
             className={`${bebas.className} text-center leading-[0.9] inline-block relative`}
           >
-            <span className="text-6xl lg:text-[4.5rem] text-white [text-shadow:3px_3px_0_#dc2626]">
-              PROJETOS EM{" "}
+            <span className="text-6xl lg:text-[4.5rem] text-white [text-shadow:3px_3px_0_#dc2626] uppercase">
+              {t.title1}
             </span>
-            <span className="text-7xl lg:text-[5.0rem] bg-[radial-gradient(circle,#f50606_40%,transparent_60%)] bg-[length:4px_4px] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-              DESTAQUE
+            <span className="text-7xl lg:text-[5.0rem] bg-[radial-gradient(circle,#f50606_40%,transparent_60%)] bg-[length:4px_4px] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] uppercase">
+              {t.title2}
             </span>
             <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-24 h-1 bg-red-600 rounded-full"></div>
           </h2>
-          <p className="text-zinc-500 mt-10 text-lg">
-            O padrão de edição que redefiniu o mercado
-          </p>
+          <p className="text-zinc-500 mt-10 text-lg">{t.sub}</p>
         </motion.div>
 
         <motion.div
@@ -54,16 +57,14 @@ export default function FeaturedProjectsSection() {
             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-red-600/10 border border-red-500/30 text-red-500 rounded-full text-sm font-bold uppercase tracking-wider">
               <Zap size={18} fill="currentColor" /> by sxuEdits
             </div>
-            <h3 className="text-4xl font-black text-white">
-              Projetos Longform
-            </h3>
+            <h3 className="text-4xl font-black text-white">{t.cardTitle}</h3>
             <ul className="space-y-4">
               <li className="flex items-center gap-4 bg-black/40 p-4 rounded-xl border border-white/5 backdrop-blur-sm">
                 <div className="bg-red-600 text-white rounded-full p-1.5 shadow-[0_0_10px_rgba(220,38,38,0.5)]">
                   <CheckCircle2 size={20} />
                 </div>
                 <span className="text-zinc-300 text-base font-medium">
-                  Alta retenção comprovada
+                  {t.list1}
                 </span>
               </li>
               <li className="flex items-center gap-4 bg-black/40 p-4 rounded-xl border border-white/5 backdrop-blur-sm">
@@ -71,7 +72,7 @@ export default function FeaturedProjectsSection() {
                   <CheckCircle2 size={20} />
                 </div>
                 <span className="text-zinc-300 text-base font-medium">
-                  Sincronia perfeita com a música
+                  {t.list2}
                 </span>
               </li>
             </ul>
@@ -93,7 +94,7 @@ export default function FeaturedProjectsSection() {
                   controls={isInteractive}
                   playsInline
                   className={`w-full h-full object-cover transition-all duration-300 scale-105 group-hover:scale-100 ${isInteractive ? "opacity-100" : "opacity-50 group-hover:opacity-100"}`}
-                  src="assets/long-1.mp4"
+                  src="/assets/long-1.mp4"
                 />
               </div>
             </div>

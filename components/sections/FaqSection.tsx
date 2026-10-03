@@ -2,12 +2,16 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { HelpCircle, ChevronDown, MessageSquare } from "lucide-react";
-import { faqs } from "@/data/content";
+import { faqs, dict } from "@/data/content";
 import { fadeUp } from "@/utils/animations";
 import { bebas } from "@/utils/fonts";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function FaqSection() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const { lang } = useLanguage();
+  const t = dict[lang].faq;
 
   return (
     <section id="faq" className="w-full relative z-10 pt-10 pb-20">
@@ -16,26 +20,28 @@ export default function FaqSection() {
           <h2
             className={`${bebas.className} leading-[0.9] inline-block relative`}
           >
-            <span className="text-6xl lg:text-[4.5rem] text-white [text-shadow:3px_3px_0_#dc2626] mr-3">
-              PERGUNTAS{" "}
+            <span className="text-6xl lg:text-[4.5rem] text-white [text-shadow:3px_3px_0_#dc2626] mr-3 uppercase">
+              {t.title1}
             </span>
-            <span className="text-7xl lg:text-[5.0rem] bg-[radial-gradient(circle,#f50606_40%,transparent_60%)] bg-[length:4px_4px] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-              FREQUENTES
+            <span className="text-7xl lg:text-[5.0rem] bg-[radial-gradient(circle,#f50606_40%,transparent_60%)] bg-[length:4px_4px] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] uppercase">
+              {t.title2}
             </span>
           </h2>
           <p className="text-zinc-500 mt-4 text-lg">
-            Ainda tem dúvidas? Entre em contato com nosso{" "}
+            {t.sub1}{" "}
             <a
-              href="#"
+              href="https://linktr.ee/saulooz"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-red-500 hover:text-white font-bold transition-colors"
             >
-              suporte
+              {t.sub2}
             </a>
           </p>
         </motion.div>
 
         <div className="space-y-4">
-          {faqs.map((faq, index) => {
+          {faqs[lang].map((faq, index) => {
             const isOpen = openFaq === faq.id;
 
             return (

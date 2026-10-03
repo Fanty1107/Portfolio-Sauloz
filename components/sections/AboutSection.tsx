@@ -4,8 +4,13 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { fadeLeft, fadeRight } from "@/utils/animations";
 import { bebas } from "@/utils/fonts";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { dict } from "@/data/content";
 
 export default function AboutSection() {
+  const { lang } = useLanguage();
+  const t = dict[lang].about;
+
   return (
     <section
       id="sobre-mim"
@@ -18,7 +23,6 @@ export default function AboutSection() {
         className="w-full lg:w-5/12 relative flex justify-center lg:justify-start"
       >
         <div className="relative w-full max-w-sm aspect-square lg:-ml-12 rotate-2 hover:rotate-0 transition-transform duration-500">
-          {/* --- DETALHE TRACEJADO: TOPO ESQUERDA --- */}
           <svg
             width="80"
             height="80"
@@ -43,7 +47,6 @@ export default function AboutSection() {
             />
           </svg>
 
-          {/* --- DETALHE TRACEJADO: BASE DIREITA (Rotacionado 180 graus) --- */}
           <svg
             width="80"
             height="80"
@@ -68,17 +71,16 @@ export default function AboutSection() {
             />
           </svg>
 
-          {/* Borda Externa */}
           <div className="absolute inset-0 border-2 border-red-600/30 rounded-2xl shadow-[0_0_30px_rgba(220,38,38,0.2)] pointer-events-none z-10"></div>
 
-          {/* Container Interno (Imagem) */}
           <div className="absolute inset-3 border-2 border-red-600 rounded-xl overflow-hidden bg-[#111] z-20">
             <div className="relative w-full h-full">
-              {/*FIXME: animação do sxu edits */}
+              {/* --- FIXME: src para .gif e a propriedade unoptimized --- */}
               <Image
-                src=""
+                src="/assets/personagem.gif"
                 alt="Personagem do Editor"
                 fill
+                unoptimized /* Impede que o Next.js trave os frames do GIF */
                 sizes="(max-width: 768px) 100vw, 400px"
                 className="object-cover opacity-90 scale-110"
               />
@@ -93,22 +95,17 @@ export default function AboutSection() {
       >
         <h2 className={`${bebas.className} flex flex-col leading-[0.9]`}>
           <span className="text-7xl lg:text-[4.5rem] bg-[radial-gradient(circle,#f50606_45%,transparent_40%)] bg-[length:4px_4px] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-            SOBRE
+            {t.title1}
           </span>
-          <span className="text-6xl lg:text-[5.0rem] text-white [text-shadow:2px_2px_0_#dc2626]">
-            MIM
+          <span className="text-6xl lg:text-[5.0rem] text-white [text-shadow:2px_2px_0_#dc2626] uppercase">
+            {t.title2}
           </span>
         </h2>
         <div className="space-y-5 text-justify text-zinc-400 text-lg md:text-xl leading-relaxed mt-4">
           <p>
-            Multi-artista bilíngue e especialista em pós-produção avançada,
-            transformo conteúdos digitais em produções de elite com ritmo
-            cirúrgico e identidade visual marcante. Unindo a bagagem estratégica
-            da formação em
-            <strong className="text-white"> Produção Audiovisual</strong> ao
-            motion design complexo e à edição de alta performance no cenário
-            gaming, utilizo técnica refinada e direção de arte para quebrar o
-            padrão e garantir retenção absoluta no mercado global.
+            {t.p1}
+            <strong className="text-white">{t.bold}</strong>
+            {t.p2}
           </p>
         </div>
       </motion.div>

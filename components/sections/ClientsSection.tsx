@@ -1,10 +1,11 @@
 "use client";
-import { clients } from "@/data/content";
+import React, { useRef, useState, useEffect } from "react";
+import { motion, useMotionValue, useAnimationFrame } from "framer-motion";
+import Link from "next/link";
+import { clients, dict } from "@/data/content";
 import { fadeUp } from "@/utils/animations";
 import { bebas } from "@/utils/fonts";
-import { motion, useAnimationFrame, useMotionValue } from "framer-motion";
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function ClientsSection() {
   const [loopWidth, setLoopWidth] = useState(0);
@@ -13,7 +14,9 @@ export default function ClientsSection() {
   const isDragging = useRef(false);
   const hasSetInitialPosition = useRef(false);
 
-  // Garante uma margem de segurança gigante (20.000px)
+  const { lang } = useLanguage();
+  const t = dict[lang].clients;
+
   const estimatedWidth = clients.length * 150;
   const COPIES = Math.max(20, Math.ceil(20000 / estimatedWidth));
   const MIDDLE_COPY = Math.floor(COPIES / 2);
@@ -71,16 +74,14 @@ export default function ClientsSection() {
         <h2
           className={`${bebas.className} text-center leading-[0.9] inline-block relative`}
         >
-          <span className="text-6xl lg:text-[4.5rem] text-white [text-shadow:3px_3px_0_#dc2626]">
-            CLIENTES QUE JÁ{" "}
+          <span className="text-6xl lg:text-[4.5rem] text-white [text-shadow:3px_3px_0_#dc2626] uppercase">
+            {t.title1}
           </span>
-          <span className="text-7xl lg:text-[5.0rem] bg-[radial-gradient(circle,#f50606_40%,transparent_60%)] bg-[length:4px_4px] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-            ATENDI
+          <span className="text-7xl lg:text-[5.0rem] bg-[radial-gradient(circle,#f50606_40%,transparent_60%)] bg-[length:4px_4px] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] uppercase">
+            {t.title2}
           </span>
         </h2>
-        <p className="text-zinc-500 mt-6 text-lg">
-          Clique para acessar o canal ou arraste para os lados
-        </p>
+        <p className="text-zinc-500 mt-6 text-lg">{t.sub}</p>
       </motion.div>
 
       <motion.div
@@ -98,12 +99,8 @@ export default function ClientsSection() {
           className="flex gap-10 px-4 w-max"
           style={{ x: baseX }}
           drag="x"
-          dragMomentum={
-            false
-          } /* <-- A SOLUÇÃO: Corta a inércia insana ao soltar o mouse/dedo */
-          dragElastic={
-            0
-          } /* <-- Remove o efeito "elástico" para maior precisão */
+          dragMomentum={false}
+          dragElastic={0}
           onDragStart={() => (isDragging.current = true)}
           onDragEnd={() => {
             setTimeout(() => (isDragging.current = false), 100);
@@ -124,13 +121,12 @@ export default function ClientsSection() {
               <div
                 className={`relative w-28 h-28 rounded-full p-1 bg-zinc-800/50 border-2 border-transparent transition-all duration-300 shadow-xl group-hover:scale-105 group-hover:-translate-y-2 ${client.color} ${client.glow}`}
               >
-                <div className="relative w-full h-full rounded-full">
+                <div className="relative w-full h-full rounded-full overflow-hidden">
                   <img
                     src={client.img}
                     alt={client.name}
-
                     draggable={false}
-                    className="w-full h-full object-cover object-cover rounded-full border-[3px] border-transparent group-hover:border-[#0a0a0a] transition-all pointer-events-none"
+                    className="w-full h-full object-cover rounded-full border-[3px] border-transparent group-hover:border-[#0a0a0a] transition-all pointer-events-none"
                   />
                 </div>
               </div>

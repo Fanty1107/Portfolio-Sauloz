@@ -5,10 +5,14 @@ import PaintTexture from "../ui/PaintTexture";
 import AnimatedButton from "../ui/AnimatedButton";
 import { fadeLeft } from "@/utils/animations";
 import { bebas } from "@/utils/fonts";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { dict } from "@/data/content";
 
 export default function HeroSection() {
   const [isInteractive, setIsInteractive] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const { lang } = useLanguage();
+  const t = dict[lang].hero;
 
   const handlePlayVideo = () => {
     if (!isInteractive) {
@@ -36,24 +40,22 @@ export default function HeroSection() {
         <h1
           className={`${bebas.className} flex flex-col gap-2 leading-[0.9] tracking-wide`}
         >
-          <span className="text-6xl lg:text-[5.5rem] text-white [text-shadow:3px_3px_0_#dc2626]">
-            SAULO EDITOR
+          <span className="text-6xl lg:text-[5.5rem] text-white [text-shadow:3px_3px_0_#dc2626] uppercase">
+            {t.role}
           </span>
           <div className="translate-x-1/80 w-100 h-1 bg-red-700 rounded-full"></div>
-          <span className="text-6xl lg:text-[5.5rem] text-white [text-shadow:3px_3px_0_#dc2626] mt-2">
-            DIREÇÃO
+          <span className="text-6xl lg:text-[5.5rem] text-white [text-shadow:3px_3px_0_#dc2626] mt-2 uppercase">
+            {t.title1}
           </span>
-          <span className="text-7xl lg:text-[7.5rem] bg-[radial-gradient(circle,#f50606_40%,transparent_40%)] bg-[length:4px_4px] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-            ESTÉTICA
+          <span className="text-7xl lg:text-[7.5rem] bg-[radial-gradient(circle,#f50606_40%,transparent_40%)] bg-[length:4px_4px] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] uppercase">
+            {t.title2}
           </span>
         </h1>
         <p className="text-justify text-lg text-zinc-400 max-w-lg leading-relaxed mt-6">
-          Quebrando o padrão da edição convencional. Desenvolvimento de
-          conceitos visuais únicos, motion design 2D e pós-produção sob medida
-          para marcas e criadores de conteúdo globais.
+          {t.desc}
         </p>
         <div className="pt-4">
-          <AnimatedButton href="#projetos" text="Ver Projetos" />
+          <AnimatedButton href="#projetos" text={t.btn} />
         </div>
       </motion.div>
 

@@ -1,11 +1,20 @@
 "use client";
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { portfolioItems } from "@/data/content";
+import { portfolioItems, dict } from "@/data/content";
 import { fadeUp } from "@/utils/animations";
 import { bebas } from "@/utils/fonts";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const PortfolioCard = ({ item }: { item: (typeof portfolioItems)[0] }) => {
+type PortfolioItem = {
+  id: number;
+  tag: string;
+  title: string;
+  subtitle: string;
+  videoUrl: string;
+};
+
+const PortfolioCard = ({ item }: { item: PortfolioItem }) => {
   const [isInteractive, setIsInteractive] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -29,10 +38,8 @@ const PortfolioCard = ({ item }: { item: (typeof portfolioItems)[0] }) => {
         {item.tag}
       </div>
 
-      {/* Borda externa */}
       <div className="absolute inset-0 border-2 border-red-600/40 rounded-[1.5rem] shadow-[0_0_30px_rgba(220,38,38,0.1)] pointer-events-none transition-colors duration-300 group-hover:border-red-600/70"></div>
 
-      {/* Borda Interna que expande */}
       <div className="absolute inset-2 group-hover:inset-1 border-2 border-red-600 rounded-2xl overflow-hidden transition-all duration-300 ease-out bg-[#050505] z-10">
         <video
           ref={videoRef}
@@ -51,6 +58,9 @@ const PortfolioCard = ({ item }: { item: (typeof portfolioItems)[0] }) => {
 };
 
 export default function PortfolioSection() {
+  const { lang } = useLanguage();
+  const t = dict[lang].portfolio;
+
   return (
     <section id="portfolio" className="w-full relative z-10 pt-10">
       <div className="max-w-[85rem] mx-auto px-6 w-full">
@@ -58,19 +68,18 @@ export default function PortfolioSection() {
           <h2
             className={`${bebas.className} text-center leading-[0.9] inline-block relative`}
           >
-            <span className="text-6xl lg:text-[4.5rem] text-white [text-shadow:3px_3px_0_#dc2626]">
-              MAIS{" "}
+            <span className="text-6xl lg:text-[4.5rem] text-white [text-shadow:3px_3px_0_#dc2626] uppercase">
+              {t.title1}
             </span>
-            <span className="text-7xl lg:text-[5.0rem] bg-[radial-gradient(circle,#f50606_40%,transparent_60%)] bg-[length:4px_4px] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-              PORTFÓLIO
+            <span className="text-7xl lg:text-[5.0rem] bg-[radial-gradient(circle,#f50606_40%,transparent_60%)] bg-[length:4px_4px] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] uppercase">
+              {t.title2}
             </span>
             <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-24 h-1 bg-red-600 rounded-full"></div>
           </h2>
         </motion.div>
 
-        {/* O grid mantém os 3 vídeos alinhados lado a lado no PC e empilhados no celular */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-8">
-          {portfolioItems.map((item, index) => (
+          {portfolioItems[lang].map((item, index) => (
             <motion.div
               key={item.id}
               initial={{ opacity: 0, y: 50 }}
