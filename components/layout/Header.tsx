@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Globe, ChevronDown } from "lucide-react";
@@ -10,14 +10,36 @@ export default function Header() {
   const { lang, toggleLang } = useLanguage();
   const t = dict[lang].header;
 
-  // Estado para controlar se o menu de idiomas está aberto ou fechado
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
 
-  // Função para trocar o idioma apenas se o usuário clicar no idioma diferente do atual
+  // Referência para o container do menu (para detectar cliques fora)
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
   const handleSelectLang = (targetLang: "pt" | "en") => {
     if (lang !== targetLang) toggleLang();
     setIsLangMenuOpen(false);
   };
+
+  // Efeito Sênior: Fecha o menu se o usuário clicar/tocar fora dele
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent | TouchEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsLangMenuOpen(false);
+      }
+    }
+
+    // Adiciona os ouvintes de clique e toque na tela inteira
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, []);
 
   return (
     <motion.header
@@ -67,13 +89,9 @@ export default function Header() {
       </nav>
 
       <div className="flex items-center gap-4">
-        {/* --- NOVO COMPONENTE DE IDIOMA (DROPDOWN) --- */}
-        <div
-          className="relative"
-          onMouseEnter={() => setIsLangMenuOpen(true)}
-          onMouseLeave={() => setIsLangMenuOpen(false)}
-        >
-          {/* Botão Principal */}
+        {/* --- MENU DE IDIOMAS (AGORA COM REF E APENAS CLICK) --- */}
+        <div className="relative" ref={dropdownRef}>
+          {/* Botão Principal: Só reage ao clique agora */}
           <button
             onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
             className="flex items-center gap-1.5 text-zinc-300 hover:text-white transition-colors bg-white/5 px-3 py-2 rounded-full border border-white/10 hover:border-white/20"
@@ -88,7 +106,6 @@ export default function Header() {
             />
           </button>
 
-          {/* Menu de Opções que cai (Dropdown) */}
           <AnimatePresence>
             {isLangMenuOpen && (
               <motion.div
