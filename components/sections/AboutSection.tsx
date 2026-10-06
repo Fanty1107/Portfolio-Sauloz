@@ -1,7 +1,6 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { fadeLeft, fadeRight } from "@/utils/animations";
 import { bebas } from "@/utils/fonts";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -10,6 +9,17 @@ import { dict } from "@/data/content";
 export default function AboutSection() {
   const { lang } = useLanguage();
   const t = dict[lang].about;
+
+  const [mounted, setMounted] = useState(false);
+  const [randomVideo, setRandomVideo] = useState("");
+
+  useEffect(() => {
+    const videoOptions = ["/assets/akame mp4.mp4", "/assets/klk mp4.mp4"];
+
+    const randomIndex = Math.floor(Math.random() * videoOptions.length);
+    setRandomVideo(videoOptions[randomIndex]);
+    setMounted(true);
+  }, []);
 
   return (
     <section
@@ -75,15 +85,16 @@ export default function AboutSection() {
 
           <div className="absolute inset-3 border-2 border-red-600 rounded-xl overflow-hidden bg-[#111] z-20">
             <div className="relative w-full h-full">
-              {/* --- FIXME: src para .gif e a propriedade unoptimized --- */}
-              <Image
-                src="/assets/personagem.gif"
-                alt="Personagem do Editor"
-                fill
-                unoptimized /* Impede que o Next.js trave os frames do GIF */
-                sizes="(max-width: 768px) 100vw, 400px"
-                className="object-cover opacity-90 scale-110"
-              />
+              {mounted && (
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover opacity-90 scale-110 pointer-events-none transition-opacity duration-500"
+                  src={randomVideo}
+                />
+              )}
             </div>
           </div>
         </div>

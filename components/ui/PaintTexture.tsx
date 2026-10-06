@@ -7,14 +7,14 @@ export default function PaintTexture() {
         <filter id="paint-splatter">
           <feTurbulence
             type="fractalNoise"
-            baseFrequency="0.04"
+            baseFrequency="0.14"
             numOctaves="4"
             result="noise"
           />
           <feDisplacementMap
             in="SourceGraphic"
             in2="noise"
-            scale="60"
+            scale="90"
             xChannelSelector="R"
             yChannelSelector="G"
           />
@@ -22,7 +22,7 @@ export default function PaintTexture() {
         <g filter="url(#paint-splatter)" fill="#f00808">
           <path d="M-50,-50 C 300,120 150,450 850,-20 C 1150,-150 1300,400 950,800 C 650,650 350,950 -100,850 Z" />
           <circle cx="20%" cy="60%" r="180" />
-          <circle cx="80%" cy="30%" r="220" />
+          <circle cx="80%" cy="60%" r="220" />
           <path d="M 400,200 Q 550,600 800,400 T 1100,900 L 200,1000 Z" />
         </g>
       </svg>

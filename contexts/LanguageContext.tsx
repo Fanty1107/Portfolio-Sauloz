@@ -15,12 +15,10 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // 1. Tenta pegar a preferência salva pelo usuário
     const saved = localStorage.getItem("@sxuedits:lang");
     if (saved) {
       setLang(saved as Lang);
     } else {
-      // 2. Se for a primeira visita, identifica o idioma do navegador!
       const browserLang = navigator.language.toLowerCase();
       const detected = browserLang.includes("en") ? "en" : "pt";
       setLang(detected);
@@ -35,7 +33,6 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem("@sxuedits:lang", newLang);
   };
 
-  // Evita piscar o idioma errado no carregamento
   if (!isLoaded) return <div className="min-h-screen bg-[#0a0a0a]"></div>;
 
   return (

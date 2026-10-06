@@ -161,7 +161,7 @@ export const clients = [
     id: 8,
     name: "Sauloozvlr",
     img: "/assets/sauloozvlr.ico",
-    url: "https://www.instagram.com/sauloozvlr/",
+    url: "https://www.instagram.com/saulozvlr/",
     color: "group-hover:border-red-500",
     glow: "group-hover:shadow-[0_0_30px_rgba(126,12,133,0.6)]",
   },
