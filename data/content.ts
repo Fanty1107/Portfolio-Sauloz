@@ -262,7 +262,7 @@ export const faqs = {
       id: 1,
       question: "How does the editing process work?",
       answer:
-        "After initial contact, you send me the raw footage. I make a first cut focused on pacing, apply VFX, motion, and sound design, and send it for approval.",
+        "After initial contact, you send me the raw footage and Briefing. I make a first cut focused on pacing, apply VFX, motion, and sound design, and send it for approval.",
     },
     {
       id: 2,
@@ -286,7 +286,7 @@ export const faqs = {
       id: 5,
       question: "How does payment work?",
       answer:
-        "Payment can be made via PayPal or Bank Transfer. The standard is a 50% upfront deposit to start editing and the remaining 50% upon final delivery.",
+        "Payment can be made via PayPal, Bank Transfer or USDT. The standard is a 50% upfront deposit to start editing and the remaining 50% upon final delivery.",
     },
   ],
 };
