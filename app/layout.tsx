@@ -13,8 +13,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sauloz Editor - Portifolio",
-  description: "Create by fanty",
+  title: "Sauloz Editor | SXUEDITS",
+  description: "Let's work together",
+  openGraph: {
+    title: "Saulo Editor | SXUEDITS",
+    description: "Let's work together",
+    url: "https://portfolio-sauloz.vercel.app",
+    siteName: "SXUEDITS",
+    locale: "pt_BR",
+    type: "website",
+  },
+  themeColor: "#dc2626",
 };
 
 export default function RootLayout({
