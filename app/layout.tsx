@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     type: "website",
   },
-  themeColor: "#dc2626",
+  themeColor: "#DC2626",
 };
 
 export default function RootLayout({
